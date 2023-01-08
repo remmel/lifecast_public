@@ -50,7 +50,7 @@ if (use_amplitude) {
   amplitude.getInstance().init("8438e5106882c14826232edcc33207a4", null, {includeReferrer: true, includeUtm: true, batchEvents: false});
 }
 
-import * as THREE from './three.module.js';
+import * as THREE from 'three';
 import {TimedVideoTexture} from "./TimedVideoTexture.js";
 
 import {
