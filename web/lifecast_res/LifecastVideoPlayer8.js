@@ -51,7 +51,6 @@ if (use_amplitude) {
 }
 
 import * as THREE from './three.module.js';
-import {OrbitControls} from "./OrbitControls.js";
 import {TimedVideoTexture} from "./TimedVideoTexture.js";
 
 import {
@@ -794,6 +793,7 @@ export function init({
   _lock_position = false,
   _create_button_url = "",
 }={}) {
+  let self = {}
   if (use_amplitude) {
     amplitude.getInstance().logEvent('video_player_init', {
       "url": window.location.href,
@@ -885,7 +885,7 @@ export function init({
     texture.generateMipmaps = false;
   } else {
     photo_mode = false;
-    video = document.createElement('video');
+    self.elVideo = video = document.createElement('video');
     video.setAttribute("crossorigin", "anonymous");
     video.setAttribute("type", "video/mp4");
     video.setAttribute("playsinline", true);
@@ -1284,4 +1284,5 @@ export function init({
   }
 
   animate();
+  return self
 } // end init()
