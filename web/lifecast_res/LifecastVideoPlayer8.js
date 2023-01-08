@@ -51,6 +51,8 @@ if (use_amplitude) {
 }
 
 import * as THREE from 'three';
+import {TextGeometry} from "three/examples/jsm/geometries/TextGeometry.js"
+import {FontLoader} from "three/examples/jsm/loaders/FontLoader.js"
 import {TimedVideoTexture} from "./TimedVideoTexture.js";
 
 import {
@@ -296,7 +298,7 @@ function debugLog(message) {
 function setDebugText(message) {
   if (debug_font == null) return;
   if (text_mesh != null) scene.remove(text_mesh);
-  text_geom = new THREE.TextGeometry(
+  text_geom = new TextGeometry(
     message,
     {font: debug_font, size: 0.05, height: 0, curveSegments: 3, bevelEnabled: false});
   text_mesh = new THREE.Mesh(text_geom, text_material);
@@ -1029,7 +1031,7 @@ export function init({
 
   // Load the debug font.
   if (enable_debug_text) {
-    var font_loader = new THREE.FontLoader();
+    var font_loader = new FontLoader();
     font_loader.load( 'https://cdn.skypack.dev/three@0.130.1/examples/fonts/helvetiker_regular.typeface.json', function (font) {
       debug_font = font;
       text_material = new THREE.MeshBasicMaterial({color: 0xffffff});
