@@ -1,0 +1,15 @@
+#play_button {
+    content:url("./play_button.png");
+}
+
+#pause_button {
+    content:url('./pause_button.png')
+}
+
+#rewind_button {
+    content:url('./rewind_button.png');
+}
+
+#buffering_button {
+    content:url('./spinner.png');
+}

@@ -65,6 +65,8 @@ import {
 } from "./LifecastVideoPlayerShaders8.js";
 import {HelpGetVR} from './HelpGetVR8.js';
 
+import style from './lifecast-ui.css' assert { type: 'css' }
+
 const CubeFace = {
   FRONT_LEFT:   0,
   BACK_LEFT:    1,
@@ -240,28 +242,24 @@ function makeNonVrControls() {
 
   const play_button = document.createElement("img");
   play_button.id                            = "play_button";
-  play_button.src                           = "lifecast_res/play_button.png";
   play_button.draggable                     = false;
   play_button.style.display                 = "none";
   play_button.style.width                   = sz;
 
   const pause_button = document.createElement("img");
   pause_button.id                           = "pause_button";
-  pause_button.src                          = "lifecast_res/pause_button.png";
   pause_button.draggable                    = false;
   pause_button.style.display                = "none";
   pause_button.style.width                  = sz;
 
   const rewind_button = document.createElement("img");
   rewind_button.id                          = "rewind_button";
-  rewind_button.src                         = "lifecast_res/rewind_button.png";
   rewind_button.draggable                   = false;
   rewind_button.style.display               = "none";
   rewind_button.style.width                 = sz;
 
   const buffering_button = document.createElement("img");
   buffering_button.id                       = "buffering_button";
-  buffering_button.src                      = "lifecast_res/spinner.png";
   buffering_button.draggable                = false;
   buffering_button.style.display            = "none";
   buffering_button.style.opacity            = 0.5;
@@ -794,6 +792,7 @@ export function init({
   _next_video_thumbnail = "",
   _lock_position = false,
   _create_button_url = "",
+  _inject_css = true
 }={}) {
   let self = {}
   if (use_amplitude) {
@@ -819,6 +818,8 @@ export function init({
   slideshow       = _slideshow;
   lock_position   = _lock_position;
   create_button_url = _create_button_url;
+
+  if(_inject_css) document.adoptedStyleSheets = [style];
 
   if (is_ios) {
     if (window.innerHeight > window.innerWidth) { // portrait
