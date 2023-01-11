@@ -1,7 +1,7 @@
 {
   "imports": {
-    "three": "https://unpkg.com/three@0.148/build/three.module.js",
-    "three/": "https://unpkg.com/three@0.148/",
+    "three": "https://cdn.jsdelivr.net/npm/three@0.148.0/build/three.module.js",
+    "three/": "https://cdn.jsdelivr.net/npm/three@0.148.0/",
     "lifecast": "./lifecast_res/LifecastVideoPlayer8.js"
   }
 }
